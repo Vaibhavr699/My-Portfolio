@@ -1,84 +1,144 @@
-import memojiAvatar1 from "@/assets/images/memoji-avatar-1.png";
-import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
-import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
-import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
-import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
+"use client";
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
-import Image from "next/image";
 import { Card } from "@/components/Card";
+import { twMerge } from "tailwind-merge";
+import StarIcon from "@/assets/icons/star.svg";
 
 const testimonials = [
   {
-    name: "Alex Turner",
-    position: "Marketing Manager @ TechStartups",
-    text: "Alex was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
-    avatar: memojiAvatar1,
+    name: "Sarah Johnson",
+    role: "Product Manager",
+    company: "TechCorp",
+    content: "Vaibhav delivered an exceptional web application that exceeded our expectations. His attention to detail and problem-solving skills are outstanding.",
+    rating: 5,
+    avatar: "👩‍💼"
   },
   {
-    name: "Olivia Green",
-    position: "Head of Design @ GreenLeaf",
-    text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
-    avatar: memojiAvatar2,
+    name: "Michael Chen",
+    role: "Startup Founder",
+    company: "InnovateLab",
+    content: "Working with Vaibhav was a game-changer for our startup. He built a scalable solution that helped us grow 300% in user engagement.",
+    rating: 5,
+    avatar: "👨‍💻"
   },
   {
-    name: "Daniel White",
-    position: "CEO @ InnovateCo",
-    text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
-    avatar: memojiAvatar3,
+    name: "Emily Rodriguez",
+    role: "Design Director",
+    company: "CreativeStudio",
+    content: "Vaibhav's technical expertise combined with his understanding of user experience created a perfect digital solution for our clients.",
+    rating: 5,
+    avatar: "👩‍🎨"
   },
   {
-    name: "Emily Carter",
-    position: "Product Manager @ GlobalTech",
-    text: "Alex is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
-    avatar: memojiAvatar4,
+    name: "David Kim",
+    role: "CTO",
+    company: "DataFlow Inc",
+    content: "The React application Vaibhav developed for us is robust, performant, and maintainable. His code quality is exceptional.",
+    rating: 5,
+    avatar: "👨‍🔬"
   },
   {
-    name: "Michael Brown",
-    position: "Director of IT @ MegaCorp",
-    text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
-    avatar: memojiAvatar5,
+    name: "Lisa Thompson",
+    role: "Marketing Director",
+    company: "GrowthCo",
+    content: "Vaibhav transformed our digital presence with a beautiful, fast-loading website that increased our conversion rate by 150%.",
+    rating: 5,
+    avatar: "👩‍💼"
   },
+  {
+    name: "Alex Patel",
+    role: "Freelance Designer",
+    company: "DesignHub",
+    content: "Collaborating with Vaibhav on multiple projects has been amazing. His technical skills and communication are top-notch.",
+    rating: 5,
+    avatar: "👨‍🎨"
+  }
 ];
 
 export const TestimonialsSection = () => {
   return (
-    <div className="py-16">
+    <section className="py-16 lg:py-24" id="testimonials">
       <div className="container">
         <SectionHeader
-          eyebrow="Happy Clients"
-          title="What Clients say about me!"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, beatae!"
+          eyebrow="Client Feedback"
+          title="What People Say"
+          description="Hear from clients and colleagues about their experience working with me."
         />
 
-        <div className="mt-16 flex overflow-x-hidden [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex gap-6 flex-none">
-            {testimonials.map((testimonial) => (
-              <Card
+        <div className="mt-16">
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
                 key={testimonial.name}
-                className="max-w-xs p-6 rounded-xl bg-gray-800/80 shadow-lg snap-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.6 
+                }}
               >
-                <div className="flex gap-4 items-center">
-                  <div className="w-14 h-14 bg-gray-700 flex items-center justify-center rounded-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
+                <Card className="p-6 h-full flex flex-col">
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <StarIcon key={i} className="w-4 h-4 text-yellow-400" />
+                    ))}
                   </div>
 
-                  <div>
-                    <div className="text-lg font-medium">{testimonial.name}</div>
-                    <div className="text-sm text-white/50">{testimonial.position}</div>
-                  </div>
-                </div>
+                  {/* Content */}
+                  <blockquote className="text-white/80 text-sm leading-relaxed flex-1 mb-4">
+                    "{testimonial.content}"
+                  </blockquote>
 
-                <p className="mt-4 text-sm leading-relaxed text-white/80">{testimonial.text}</p>
-              </Card>
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                    <div className="text-2xl">{testimonial.avatar}</div>
+                    <div>
+                      <div className="font-semibold text-white text-sm">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-white/60 text-xs">
+                        {testimonial.role} at {testimonial.company}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
           </div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="mt-16"
+          >
+            <Card className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="text-3xl font-bold gradient-text">100%</div>
+                  <div className="text-white/70 text-sm mt-1">Client Satisfaction</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold gradient-text">5.0</div>
+                  <div className="text-white/70 text-sm mt-1">Average Rating</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold gradient-text">50+</div>
+                  <div className="text-white/70 text-sm mt-1">Happy Clients</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold gradient-text">24/7</div>
+                  <div className="text-white/70 text-sm mt-1">Support Available</div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
-

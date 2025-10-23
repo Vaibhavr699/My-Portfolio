@@ -1,6 +1,6 @@
 import WanderVaultImage from "@/assets/images/Wander.png";
-import Estate from "@/assets/images/Estate.png";
-import aiStartupLandingPage from "@/assets/images/intelli.png";
+import HealthMate from "@/assets/images/HealthMate.png";
+import Tarvya from "@/assets/images/tarvya.png";
 import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUp from "@/assets/icons/arrow-up-right.svg";
@@ -9,73 +9,37 @@ import { Card } from "@/components/Card";
 
 const portfolioProjects = [
   {
+    title: "Tarvya Infra Pvt Ltd",
+    results: [
+      { title: "Developed a modern, responsive website for Tarvya Infra Pvt Ltd" },
+      { title: "Showcased company services and projects with clean UI/UX design" },
+      { title: "Integrated CMS for dynamic content management and scalability" },
+      { title: "Optimized performance for fast load times and mobile usability" },
+    ],
+    link: "https://tarvyainfra.com/",
+    image: Tarvya,
+  },
+  {
+    title: "HealthMate AI",
+    results: [
+      { title: "Developed HealthMate AI, an intelligent health assistant using Next.js and Node.js" },
+      { title: "Enabled patients to chat and receive AI-powered feedback on health issues in real-time" },
+      { title: "Integrated Prisma ORM and Chroma DB for secure chat history storage and retrieval" },
+      { title: "Designed a responsive, user-friendly interface for seamless medical consultations" },
+    ],
+    link: "#",
+    image: HealthMate,
+  },
+  {
     title: "WanderVault",
     results: [
-      {
-        title:
-          "Developed WanderVault, a platform for users to add images with stories and locations to preserve memories",
-      },
-      {
-        title:
-          "Implemented intuitive UI/UX for seamless image and story uploads",
-      },
-      {
-        title: "Enabled location-based tagging for better memory organization",
-      },
-      {
-        title:
-          "Integrated database storage for efficient data retrieval and management",
-      },
+      { title: "Developed WanderVault, a platform for users to add images with stories and locations to preserve memories", },
+      { title: "Implemented intuitive UI/UX for seamless image and story uploads", },
+      { title: "Enabled location-based tagging for better memory organization", },
+      { title: "Integrated database storage for efficient data retrieval and management", },
     ],
     link: "https://github.com/Vaibhavr699/WanderVault",
     image: WanderVaultImage,
-  },
-  {
-    company: "",
-    title: "IntelliLearnX AI",
-    results: [
-      {
-        title:
-          "Developed IntelliLearnX AI, a smart learning platform powered by AI for personalized education",
-      },
-      {
-        title:
-          "Built dynamic content delivery based on user behavior and performance analytics",
-      },
-      {
-        title:
-          "Integrated responsive UI with interactive learning modules for enhanced engagement",
-      },
-      {
-        title:
-          "Optimized application performance, improving load times and mobile usability",
-      },
-    ],
-    link: "#",
-    image: aiStartupLandingPage,
-  },
-  {
-    title: "Estate",
-    results: [
-      {
-        title:
-          "Developed Estate, a fully responsive real estate platform using React.js and Tailwind CSS",
-      },
-      {
-        title:
-          "Designed an intuitive UI for seamless property browsing and filtering",
-      },
-      {
-        title:
-          "Implemented advanced search and filtering for better property discovery",
-      },
-      {
-        title:
-          "Optimized performance for a smooth and fast user experience on all devices",
-      },
-    ],
-    link: "https://my-eststae-app.netlify.app/",
-    image: Estate,
   },
 ];
 
@@ -114,18 +78,19 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
-                    <button className="bg-white mt-8 text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-200">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <button className="btn-primary mt-8 w-full md:w-auto inline-flex items-center justify-center gap-2 group">
                       <span>View Live Site</span>
-                      <ArrowUp className="size-4" />
+                      <ArrowUp className="size-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
                   </a>
                 </div>
                 <div>
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - Project Screenshot`}
                     className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    loading="lazy"
                   />
                 </div>
               </div>

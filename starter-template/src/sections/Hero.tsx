@@ -78,15 +78,13 @@ export const HeroSection = () => {
           {/* Text Content */}
           <div className="max-w-4xl mx-auto">
             <h1 className="font-serif text-3xl md:text-5xl text-center mt-6 tracking-wide">
-              Hello, I&apos;m Vaibhav Raj
+              Hello, I&apos;m <span className="gradient-text">Vaibhav Raj</span>
             </h1>
             <p className="mt-3 text-white/50 text-center md:text-lg">
-              Your friendly neighbourhood software developer from India! I am a
-              passionate and creative tech geek and software developer. I create
-              engaging and user-friendly digital experiences. I have a keen eye
-              for design and a love for coding and I&apos;m constantly striving to
-              push the boundaries of what&apos;s possible in the digital realm. Feel
-              free to catch me while I&apos;m surfing the web!
+              <strong>Full Stack Developer</strong> at Excellence Technology, specializing in React, Next.js, and Node.js. 
+              I create engaging and user-friendly digital experiences with a keen eye for design 
+              and a passion for clean, efficient code. Based in India, I&apos;m constantly learning 
+              and growing in the ever-evolving world of web development.
             </p>
           </div>
 

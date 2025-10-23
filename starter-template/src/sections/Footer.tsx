@@ -31,12 +31,12 @@ export const Footer = () => {
               <a 
                 href={link.href} 
                 key={link.title} 
-                className="inline-flex items-center gap-1.5 hover:text-emerald-300 transition-colors duration-300" 
+                className="inline-flex items-center gap-1.5 hover:text-emerald-300 transition-all duration-300 hover:scale-105 group" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <span className="font-semibold">{link.title}</span>
-                <ArrowUp className="size-4" />
+                <ArrowUp className="size-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </a>
             ))}
           </nav>
