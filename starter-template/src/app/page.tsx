@@ -4,9 +4,6 @@ import { ProjectsSection } from "@/sections/Projects";
 import { TapeSection } from "@/sections/Tape";
 import { AboutSection } from "@/sections/About";
 import { SkillsSection } from "@/sections/Skills";
-import { ExperienceSection } from "@/sections/Experience";
-import { AchievementsSection } from "@/sections/Achievements";
-import { TestimonialsSection } from "@/sections/Testimonials";
 import { BlogSection } from "@/sections/Blog";
 import { ContactSection } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
@@ -20,9 +17,6 @@ export default function Home() {
       <TapeSection />
       <AboutSection />
       <SkillsSection />
-      <ExperienceSection />
-      <AchievementsSection />
-      <TestimonialsSection />
       <BlogSection />
       <ContactSection />
       <Footer />

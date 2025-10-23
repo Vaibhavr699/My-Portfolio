@@ -1,10 +1,11 @@
+"use client";
+
 export const Header = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Projects", href: "#project" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
     { name: "Contact", href: "mailto:vaibhavr699@gmail.com" }
   ];
 

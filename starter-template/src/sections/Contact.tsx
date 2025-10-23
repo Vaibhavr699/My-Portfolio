@@ -1,3 +1,4 @@
+"use client";
 import ArrowUp from "@/assets/icons/arrow-up-right.svg";
 import GrainImg from "@/assets/images/grain.jpg";
 

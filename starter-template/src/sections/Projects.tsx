@@ -1,3 +1,4 @@
+"use client";
 import WanderVaultImage from "@/assets/images/Wander.png";
 import HealthMate from "@/assets/images/HealthMate.png";
 import Tarvya from "@/assets/images/tarvya.png";
