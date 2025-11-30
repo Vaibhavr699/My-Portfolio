@@ -1,15 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 
+const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "Projects", href: "#project" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" }
+];
+
 export const Header = () => {
   const [activeTab, setActiveTab] = useState("Home");
-  
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#project" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" }
-  ];
 
   const handleClick = (itemName: string) => {
     setActiveTab(itemName);

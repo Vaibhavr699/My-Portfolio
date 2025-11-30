@@ -133,6 +133,7 @@ export const AboutSection = () => {
                   rel="noopener noreferrer"
                   className="block transition-opacity"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src="https://ghchart.rshah.org/Vaibhavr699" 
                     alt="GitHub Contribution Calendar - Click to view full contributions" 
