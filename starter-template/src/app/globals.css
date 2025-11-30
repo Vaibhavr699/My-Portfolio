@@ -7,6 +7,10 @@
         @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/30 hover:text-white transition-all duration-300 hover:scale-105;
     }
 
+    .nav-item-responsive {
+        @apply px-2 py-1 sm:px-4 sm:py-1.5 rounded-full text-white/70 text-xs sm:text-sm font-semibold hover:bg-white/30 hover:text-white transition-all duration-300 hover:scale-105 whitespace-nowrap;
+    }
+
     .hero-ring{
         @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
     }
@@ -77,5 +81,15 @@
 
     ::-webkit-scrollbar-thumb:hover {
         background: linear-gradient(to bottom, #059669, #0891b2);
+    }
+
+    /* Hide scrollbar for horizontal scroll */
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;  /* Chrome, Safari and Opera */
     }
 }

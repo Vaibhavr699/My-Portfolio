@@ -2,50 +2,64 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-import { CardHeader } from "@/components/CardHeader";
-import { twMerge } from "tailwind-merge";
+import { TechIcon } from "@/components/TechIcon";
+import Javascripticon from "@/assets/icons/javascript-logo-svgrepo-com.svg";
+import HTMLIcon from "@/assets/icons/html-5-svgrepo-com.svg";
+import Cssicon from "@/assets/icons/css3-svgrepo-com.svg";
+import Tailwind from "@/assets/icons/tailwind-svgrepo-com.svg";
+import ReactIcon from "@/assets/icons/react-svgrepo-com.svg";
+import NextIcon from "@/assets/icons/nextjs-svgrepo-com.svg";
+import NodeIcon from "@/assets/icons/node-svgrepo-com.svg";
+import Express from "@/assets/icons/express-svgrepo-com.svg";
+import Mongo from "@/assets/icons/mongodb-svgrepo-com.svg";
+import Sql from '@/assets/icons/sql-database-generic-svgrepo-com.svg';
+import Git from '@/assets/icons/git-icon-logo-svgrepo-com.svg';
+import Firebase from "@/assets/icons/firebase-svgrepo-com.svg";
+import Figma from "@/assets/icons/figma-svgrepo-com.svg";
+import StarIcon from "@/assets/icons/star.svg";
 
 const skillCategories = [
   {
     title: "Frontend Development",
     skills: [
-      { name: "React.js", level: 85, color: "from-blue-400 to-blue-600" },
-      { name: "Next.js", level: 80, color: "from-gray-400 to-gray-600" },
-      { name: "TypeScript", level: 75, color: "from-blue-500 to-blue-700" },
-      { name: "JavaScript", level: 90, color: "from-yellow-400 to-yellow-600" },
-      { name: "HTML/CSS", level: 95, color: "from-orange-400 to-orange-600" },
-      { name: "Tailwind CSS", level: 88, color: "from-cyan-400 to-cyan-600" },
+      { name: "React.js", icon: ReactIcon, level: 85 },
+      { name: "Next.js", icon: NextIcon, level: 80 },
+      { name: "JavaScript", icon: Javascripticon, level: 90 },
+      { name: "HTML/CSS", icon: HTMLIcon, level: 95 },
+      { name: "Tailwind CSS", icon: Tailwind, level: 88 },
     ]
   },
   {
     title: "Backend Development",
     skills: [
-      { name: "Node.js", level: 75, color: "from-green-400 to-green-600" },
-      { name: "Express.js", level: 70, color: "from-gray-400 to-gray-600" },
-      { name: "REST APIs", level: 80, color: "from-purple-400 to-purple-600" },
-      { name: "Prisma ORM", level: 65, color: "from-pink-400 to-pink-600" },
+      { name: "Node.js", icon: NodeIcon, level: 75 },
+      { name: "Express.js", icon: Express, level: 70 },
+      { name: "REST APIs", icon: null, level: 80 },
     ]
   },
   {
     title: "Database & Tools",
     skills: [
-      { name: "MongoDB", level: 75, color: "from-green-500 to-green-700" },
-      { name: "SQL", level: 70, color: "from-blue-400 to-blue-600" },
-      { name: "Git/GitHub", level: 85, color: "from-gray-400 to-gray-600" },
-      { name: "Chroma DB", level: 60, color: "from-yellow-400 to-orange-500" },
-      { name: "Firebase", level: 65, color: "from-yellow-400 to-orange-500" },
+      { name: "MongoDB", icon: Mongo, level: 75 },
+      { name: "SQL", icon: Sql, level: 70 },
+      { name: "Git/GitHub", icon: Git, level: 85 },
+      { name: "Firebase", icon: Firebase, level: 65 },
     ]
   },
   {
     title: "Design & Tools",
     skills: [
-      { name: "Figma", level: 80, color: "from-purple-400 to-pink-500" },
-      { name: "Framer Motion", level: 75, color: "from-purple-500 to-purple-700" },
-      { name: "Responsive Design", level: 90, color: "from-blue-400 to-blue-600" },
-      { name: "UI/UX Design", level: 70, color: "from-pink-400 to-purple-500" },
+      { name: "Figma", icon: Figma, level: 80 },
+      { name: "Responsive Design", icon: null, level: 90 },
+      { name: "UI/UX Design", icon: null, level: 70 },
     ]
   }
 ];
+
+const getProficiencyStars = (level: number) => {
+  const stars = Math.ceil(level / 20); // 5 stars max
+  return stars;
+};
 
 export const SkillsSection = () => {
   return (
@@ -59,40 +73,65 @@ export const SkillsSection = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={category.title} className="p-8">
-              <h3 className="font-serif text-2xl mb-6 gradient-text">
+            <Card key={category.title} className="p-6 md:p-8">
+              <h3 className="font-serif text-xl md:text-2xl mb-6 gradient-text">
                 {category.title}
               </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      delay: (categoryIndex * 0.1) + (skillIndex * 0.05),
-                      duration: 0.5 
-                    }}
-                    className="space-y-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="font-semibold text-white">{skill.name}</span>
-                      <span className="text-sm text-white/60">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-white/10 rounded-full h-2">
-                      <motion.div
-                        className={twMerge("h-2 rounded-full bg-gradient-to-r", skill.color)}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ 
-                          delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3,
-                          duration: 1,
-                          ease: "easeOut"
-                        }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {category.skills.map((skill, skillIndex) => {
+                  const stars = getProficiencyStars(skill.level);
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ 
+                        delay: (categoryIndex * 0.1) + (skillIndex * 0.05),
+                        duration: 0.4 
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      className="group"
+                    >
+                      <div className="glass-card rounded-xl p-4 border border-white/10 hover:border-emerald-300/30 transition-all duration-300 cursor-pointer">
+                        <div className="flex items-center gap-3 mb-3">
+                          {skill.icon ? (
+                            <div className="flex-shrink-0">
+                              <TechIcon component={skill.icon} />
+                            </div>
+                          ) : (
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-300/20 to-sky-400/20 flex items-center justify-center">
+                              <span className="text-lg font-bold gradient-text">
+                                {skill.name.charAt(0)}
+                              </span>
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-white text-sm md:text-base truncate">
+                              {skill.name}
+                            </h4>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <StarIcon
+                                key={i}
+                                className={`w-3 h-3 ${
+                                  i < stars
+                                    ? "text-emerald-300 fill-emerald-300"
+                                    : "text-white/20"
+                                } transition-colors`}
+                              />
+                            ))}
+                          </div>
+                          <span className="text-xs text-white/60 font-medium">
+                            {skill.level}%
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </Card>
           ))}

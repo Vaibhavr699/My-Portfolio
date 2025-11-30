@@ -82,11 +82,11 @@ export const HeroSection = () => {
               Hello, I&apos;m <span className="gradient-text">Vaibhav Raj</span>
             </h1>
             <p className="mt-3 text-white/50 text-center md:text-lg">
-              <strong>Full Stack Developer</strong> at Excellence Technology, specializing in React, Next.js, and Node.js. 
-              I create engaging and user-friendly digital experiences with a keen eye for design 
-              and a passion for clean, efficient code. Based in India, I&apos;m constantly learning 
-              and growing in the ever-evolving world of web development.
-            </p>
+  <strong>Full Stack Developer</strong> specializing in React, Next.js, and Node.js. 
+  I build engaging, high-performance digital experiences with a focus on clean design 
+  and efficient, scalable code. Based in India, I'm always exploring new technologies 
+  and elevating my craft in the ever-evolving world of web development.
+</p>
           </div>
 
           {/* Buttons */}

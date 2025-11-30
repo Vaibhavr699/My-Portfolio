@@ -137,8 +137,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <link rel="canonical" href="https://vaibhavraj.dev" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/letter-v.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/letter-v.png" />
+        <link rel="shortcut icon" href="/letter-v.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#10b981" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

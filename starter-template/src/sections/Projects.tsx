@@ -2,6 +2,7 @@
 import WanderVaultImage from "@/assets/images/Wander.png";
 import HealthMate from "@/assets/images/HealthMate.png";
 import Tarvya from "@/assets/images/tarvya.png";
+import EcosystemeImage from "@/assets/images/Ecosysteme.png";
 import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUp from "@/assets/icons/arrow-up-right.svg";
@@ -9,6 +10,17 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    title: "Ecosysteme.ai",
+    results: [
+      { title: "Developed a comprehensive AI agent platform for business automation" },
+      { title: "Built intelligent agents for telephony, content creation, SDR, customer service, and more" },
+      { title: "Implemented seamless integrations with 50+ business tools and platforms" },
+      { title: "Created an intuitive dashboard for managing multiple AI agents from a single interface" },
+    ],
+    link: "https://www.ecosysteme.ai/",
+    image: EcosystemeImage,
+  },
   {
     title: "Tarvya Infra Pvt Ltd",
     results: [

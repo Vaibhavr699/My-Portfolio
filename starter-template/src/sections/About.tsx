@@ -118,6 +118,37 @@ export const AboutSection = () => {
           </Card>
           </div>
 
+          {/* GitHub Contribution Calendar Card - Full Width */}
+          <Card className="w-full p-6 md:p-8 lg:p-10">
+            <CardHeader
+              title="GitHub Contributions"
+              description="Track my coding journey and GitHub contributions throughout the year."
+              className="mb-6"
+            />
+            <div className="w-full flex justify-center items-center bg-gray-800/50 rounded-xl p-4 md:p-6 min-h-[200px]">
+              <div className="w-full max-w-4xl">
+                <a 
+                  href="https://github.com/users/Vaibhavr699/contributions" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block transition-opacity"
+                >
+                  <img 
+                    src="https://ghchart.rshah.org/Vaibhavr699" 
+                    alt="GitHub Contribution Calendar - Click to view full contributions" 
+                    className="w-full h-auto rounded-lg"
+                  />
+                </a>
+                {/* Alternative: If you have a screenshot/image of your GitHub contributions, import it and use:
+                <Image 
+                  src={GitHubCalendarImage} 
+                  alt="GitHub Contribution Calendar" 
+                  className="w-full h-auto rounded-lg"
+                /> */}
+              </div>
+            </div>
+          </Card>
+
           {/*Hobbies Card 3 */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
           <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
