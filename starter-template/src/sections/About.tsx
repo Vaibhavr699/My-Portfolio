@@ -17,6 +17,9 @@ import Sql from '@/assets/icons/sql-database-generic-svgrepo-com.svg';
 import Git from '@/assets/icons/git-icon-logo-svgrepo-com.svg';
 import Firebase from "@/assets/icons/firebase-svgrepo-com.svg";
 import Figma from "@/assets/icons/figma-svgrepo-com.svg";
+import PythonIcon from "@/assets/icons/python.svg";
+import FastApiIcon from "@/assets/icons/fastapi.svg";
+import NativeWindIcon from "@/assets/icons/nativewind.svg";
 import { motion } from "motion/react"
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { useRef } from "react";
@@ -28,14 +31,17 @@ const toolboxItems = [
   { title: "JavaScript", iconType: Javascripticon },
   { title: "React.Js", iconType: ReactIcon },
   { title: "Next.Js", iconType: NextIcon},
+  { title: "React Native", iconType: ReactIcon },
+  { title: "NativeWind", iconType: NativeWindIcon },
   { title: "Node.Js", iconType: NodeIcon },
   { title: "Express.Js", iconType: Express },
+  { title: "Python", iconType: PythonIcon },
+  { title: "FastAPI", iconType: FastApiIcon },
   { title: "Mongo DB", iconType: Mongo },
   { title: "SQL", iconType: Sql },
   { title: "GitHub", iconType: Git },
   { title: "FireBase", iconType: Firebase },
   { title: "Figma", iconType: Figma },
-  
 ];
 
 const hobbies = [

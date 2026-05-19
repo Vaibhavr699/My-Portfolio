@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.64",
+    "@ai-sdk/react": "^3.0.187",
     "@svgr/webpack": "^8.1.0",
+    "ai": "^6.0.185",
     "framer-motion": "^11.18.2",
     "motion": "^12.5.0",
     "next": "^14.2.24",
     "react": "^18",
     "react-dom": "^18",
+    "react-markdown": "^8.0.7",
+    "remark-gfm": "^4.0.1",
     "sharp": "^0.34.1",
     "tailwind-merge": "^2.4.0"
   },

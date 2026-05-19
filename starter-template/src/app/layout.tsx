@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {Inter, Calistoga} from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif" , weight:["400"]});
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     default: "Vaibhav Raj - Full Stack Developer & React Specialist",
     template: "%s | Vaibhav Raj - Full Stack Developer"
   },
-  description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies. Building scalable web applications with 3+ years of expertise.",
+  description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies. Building scalable web applications with 1.5+ years of expertise.",
   keywords: [
     "Full Stack Developer",
     "React Developer",
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://vaibhavraj.dev",
     title: "Vaibhav Raj - Full Stack Developer & React Specialist",
-    description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies. Building scalable web applications with 3+ years of expertise.",
+    description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies. Building scalable web applications with 1.5+ years of expertise.",
     siteName: "Vaibhav Raj Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/letter-v.png",
+        width: 512,
+        height: 512,
         alt: "Vaibhav Raj - Full Stack Developer",
       },
     ],
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vaibhav Raj - Full Stack Developer & React Specialist",
     description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies.",
-    images: ["/og-image.jpg"],
+    images: ["/letter-v.png"],
     creator: "@vaibhavraj",
   },
   robots: {
@@ -72,11 +73,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
   },
 };
 
@@ -92,7 +88,7 @@ export default function RootLayout({
     "jobTitle": "Full Stack Developer",
     "description": "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and modern web technologies",
     "url": "https://vaibhavraj.dev",
-    "image": "https://vaibhavraj.dev/og-image.jpg",
+    "image": "https://vaibhavraj.dev/letter-v.png",
     "sameAs": [
       "https://github.com/Vaibhavr699",
       "https://www.linkedin.com/in/vaibhav-raj0135/",
@@ -137,9 +133,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <link rel="canonical" href="https://vaibhavraj.dev" />
-        <link rel="icon" href="/letter-v.png" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/letter-v.png" />
-        <link rel="shortcut icon" href="/letter-v.png" type="image/png" />
+        <link rel="icon" href="/LetterV.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/LetterV.png" />
+        <link rel="shortcut icon" href="/LetterV.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#10b981" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -154,6 +150,7 @@ export default function RootLayout({
           <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-emerald-300/10 rounded-full animate-pulse delay-2000"></div>
         </div>
         {children}
+        <ChatWidget />
       </body>
     </html>
   );

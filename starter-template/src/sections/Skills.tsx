@@ -16,50 +16,52 @@ import Sql from '@/assets/icons/sql-database-generic-svgrepo-com.svg';
 import Git from '@/assets/icons/git-icon-logo-svgrepo-com.svg';
 import Firebase from "@/assets/icons/firebase-svgrepo-com.svg";
 import Figma from "@/assets/icons/figma-svgrepo-com.svg";
-import StarIcon from "@/assets/icons/star.svg";
+import PythonIcon from "@/assets/icons/python.svg";
+import FastApiIcon from "@/assets/icons/fastapi.svg";
+import NativeWindIcon from "@/assets/icons/nativewind.svg";
+import RestApiIcon from "@/assets/icons/rest-api.svg";
 
 const skillCategories = [
   {
     title: "Frontend Development",
     skills: [
-      { name: "React.js", icon: ReactIcon, level: 85 },
-      { name: "Next.js", icon: NextIcon, level: 80 },
-      { name: "JavaScript", icon: Javascripticon, level: 90 },
-      { name: "HTML/CSS", icon: HTMLIcon, level: 95 },
-      { name: "Tailwind CSS", icon: Tailwind, level: 88 },
+      { name: "React.js", icon: ReactIcon },
+      { name: "Next.js", icon: NextIcon },
+      { name: "React Native", icon: ReactIcon },
+      { name: "NativeWind", icon: NativeWindIcon },
+      { name: "JavaScript", icon: Javascripticon },
+      { name: "HTML/CSS", icon: HTMLIcon },
+      { name: "Tailwind CSS", icon: Tailwind },
     ]
   },
   {
     title: "Backend Development",
     skills: [
-      { name: "Node.js", icon: NodeIcon, level: 75 },
-      { name: "Express.js", icon: Express, level: 70 },
-      { name: "REST APIs", icon: null, level: 80 },
+      { name: "Node.js", icon: NodeIcon },
+      { name: "Express.js", icon: Express },
+      { name: "Python", icon: PythonIcon },
+      { name: "FastAPI", icon: FastApiIcon },
+      { name: "REST APIs", icon: RestApiIcon },
     ]
   },
   {
     title: "Database & Tools",
     skills: [
-      { name: "MongoDB", icon: Mongo, level: 75 },
-      { name: "SQL", icon: Sql, level: 70 },
-      { name: "Git/GitHub", icon: Git, level: 85 },
-      { name: "Firebase", icon: Firebase, level: 65 },
+      { name: "MongoDB", icon: Mongo },
+      { name: "SQL", icon: Sql },
+      { name: "Git/GitHub", icon: Git },
+      { name: "Firebase", icon: Firebase },
     ]
   },
   {
     title: "Design & Tools",
     skills: [
-      { name: "Figma", icon: Figma, level: 80 },
-      { name: "Responsive Design", icon: null, level: 90 },
-      { name: "UI/UX Design", icon: null, level: 70 },
+      { name: "Figma", icon: Figma },
+      { name: "Responsive Design", icon: null },
+      { name: "UI/UX Design", icon: null },
     ]
   }
 ];
-
-const getProficiencyStars = (level: number) => {
-  const stars = Math.ceil(level / 20); // 5 stars max
-  return stars;
-};
 
 export const SkillsSection = () => {
   return (
@@ -78,60 +80,40 @@ export const SkillsSection = () => {
                 {category.title}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {category.skills.map((skill, skillIndex) => {
-                  const stars = getProficiencyStars(skill.level);
-                  return (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        delay: (categoryIndex * 0.1) + (skillIndex * 0.05),
-                        duration: 0.4 
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                      className="group"
-                    >
-                      <div className="glass-card rounded-xl p-4 border border-white/10 hover:border-emerald-300/30 transition-all duration-300 cursor-pointer">
-                        <div className="flex items-center gap-3 mb-3">
-                          {skill.icon ? (
-                            <div className="flex-shrink-0">
-                              <TechIcon component={skill.icon} />
-                            </div>
-                          ) : (
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-300/20 to-sky-400/20 flex items-center justify-center">
-                              <span className="text-lg font-bold gradient-text">
-                                {skill.name.charAt(0)}
-                              </span>
-                            </div>
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold text-white text-sm md:text-base truncate">
-                              {skill.name}
-                            </h4>
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      delay: (categoryIndex * 0.1) + (skillIndex * 0.05),
+                      duration: 0.4
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    className="group"
+                  >
+                    <div className="glass-card rounded-xl p-4 border border-white/10 hover:border-emerald-300/30 transition-all duration-300 cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        {skill.icon ? (
+                          <div className="flex-shrink-0">
+                            <TechIcon component={skill.icon} />
                           </div>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <StarIcon
-                                key={i}
-                                className={`w-3 h-3 ${
-                                  i < stars
-                                    ? "text-emerald-300 fill-emerald-300"
-                                    : "text-white/20"
-                                } transition-colors`}
-                              />
-                            ))}
+                        ) : (
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-300/20 to-sky-400/20 flex items-center justify-center">
+                            <span className="text-lg font-bold gradient-text">
+                              {skill.name.charAt(0)}
+                            </span>
                           </div>
-                          <span className="text-xs text-white/60 font-medium">
-                            {skill.level}%
-                          </span>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-white text-sm md:text-base truncate">
+                            {skill.name}
+                          </h4>
                         </div>
                       </div>
-                    </motion.div>
-                  );
-                })}
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </Card>
           ))}
@@ -150,8 +132,8 @@ export const SkillsSection = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-emerald-300">6+</div>
-                <div className="text-white/70">Months Experience</div>
+                <div className="text-3xl font-bold text-emerald-300">1.5+</div>
+                <div className="text-white/70">Years Experience</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-emerald-300">12+</div>

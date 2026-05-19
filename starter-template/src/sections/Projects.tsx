@@ -1,15 +1,24 @@
 "use client";
-import WanderVaultImage from "@/assets/images/Wander.png";
-import HealthMate from "@/assets/images/HealthMate.png";
+import OriginTraceImage from "@/assets/images/Origin Trace AI.png";
+import FrontDeskHelper from "@/assets/images/FrontDeskHelper.png";
 import Tarvya from "@/assets/images/tarvya.png";
 import EcosystemeImage from "@/assets/images/Ecosysteme.png";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUp from "@/assets/icons/arrow-up-right.svg";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
+import { twMerge } from "tailwind-merge";
 
-const portfolioProjects = [
+type PortfolioProject = {
+  title: string;
+  results: { title: string }[];
+  link: string;
+  image: StaticImageData;
+  imageClassName?: string;
+};
+
+const portfolioProjects: PortfolioProject[] = [
   {
     title: "Ecosysteme.ai",
     results: [
@@ -22,6 +31,28 @@ const portfolioProjects = [
     image: EcosystemeImage,
   },
   {
+    title: "AI Front Desk Helper",
+    results: [
+      { title: "Built end-to-end (frontend + backend) for a client: an AI revenue platform for home service businesses" },
+      { title: "Developed inbound AI call handling and outbound campaign workflows to capture and convert leads 24/7" },
+      { title: "Implemented estimate recovery and AI coaching features to drive missed-revenue follow-ups" },
+      { title: "Designed a modern, conversion-focused marketing site with pricing, features, and sign-up flow" },
+    ],
+    link: "https://aifrontdeskhelper.com/",
+    image: FrontDeskHelper,
+  },
+  {
+    title: "OriginTrace.AI",
+    results: [
+      { title: "Built an aircraft records risk-intelligence platform — Human-in-the-Loop AI for technical due diligence at scale" },
+      { title: "Document Intelligence pipeline ingests maintenance logs, shop visit reports, and ADs; AI extracts structured findings and scores severity" },
+      { title: "Engine health monitoring, Digital Twin aircraft view, and risk dashboards with full audit trails and approvals" },
+      { title: "Compliance-first architecture: immutable record layer, SOC 2 data handling, and EU drone traceability for the 2026 mandate" },
+    ],
+    link: "https://origintrace.ai/",
+    image: OriginTraceImage,
+  },
+  {
     title: "Tarvya Infra Pvt Ltd",
     results: [
       { title: "Developed a modern, responsive website for Tarvya Infra Pvt Ltd" },
@@ -31,28 +62,6 @@ const portfolioProjects = [
     ],
     link: "https://tarvyainfra.com/",
     image: Tarvya,
-  },
-  {
-    title: "HealthMate AI",
-    results: [
-      { title: "Developed HealthMate AI, an intelligent health assistant using Next.js and Node.js" },
-      { title: "Enabled patients to chat and receive AI-powered feedback on health issues in real-time" },
-      { title: "Integrated Prisma ORM and Chroma DB for secure chat history storage and retrieval" },
-      { title: "Designed a responsive, user-friendly interface for seamless medical consultations" },
-    ],
-    link: "#",
-    image: HealthMate,
-  },
-  {
-    title: "WanderVault",
-    results: [
-      { title: "Developed WanderVault, a platform for users to add images with stories and locations to preserve memories", },
-      { title: "Implemented intuitive UI/UX for seamless image and story uploads", },
-      { title: "Enabled location-based tagging for better memory organization", },
-      { title: "Integrated database storage for efficient data retrieval and management", },
-    ],
-    link: "https://github.com/Vaibhavr699/WanderVault",
-    image: WanderVaultImage,
   },
 ];
 
@@ -102,7 +111,10 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={`${project.title} - Project Screenshot`}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    className={twMerge(
+                      "mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none",
+                      project.imageClassName
+                    )}
                     loading="lazy"
                   />
                 </div>

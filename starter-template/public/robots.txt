@@ -19,5 +19,4 @@ Allow: /#home
 Allow: /#project
 Allow: /#about
 Allow: /#skills
-Allow: /#experience
 Allow: /#contact
