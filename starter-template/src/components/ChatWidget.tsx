@@ -51,7 +51,7 @@ export const ChatWidget = () => {
 
       {/* Chat panel */}
       <div
-        className={`fixed bottom-24 inset-x-3 sm:inset-x-auto sm:right-6 sm:w-96 h-[calc(100vh-8rem)] sm:h-[32rem] max-h-[600px] z-50 glass-card rounded-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right ${
+        className={`fixed bottom-24 inset-x-3 md:inset-x-auto md:right-6 md:w-96 h-[calc(100vh-8rem)] md:h-[32rem] max-h-[600px] z-50 glass-card rounded-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right ${
           isOpen ? "scale-100 opacity-100 pointer-events-auto" : "scale-95 opacity-0 pointer-events-none"
         }`}
       >
