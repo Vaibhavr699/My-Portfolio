@@ -9,7 +9,7 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
   return (
-    <div className="py-28 md:py-44 lg:py-56 relative z-0 overflow-x-clip">
+    <section className="py-28 md:py-44 lg:py-56 relative z-0 overflow-x-clip">
       <div
         className="absolute inset-0"
         style={{
@@ -106,6 +106,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

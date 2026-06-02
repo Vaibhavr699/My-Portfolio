@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CardHeader } from "@/components/CardHeader";
@@ -23,6 +24,13 @@ import NativeWindIcon from "@/assets/icons/nativewind.svg";
 import { motion } from "motion/react"
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { useRef } from "react";
+
+// Loaded client-only: the calendar fetches contribution data on the client,
+// so server-rendering it would cause a hydration mismatch.
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((m) => m.GitHubCalendar),
+  { ssr: false }
+);
 
 const toolboxItems = [
   { title: "HTML", iconType: HTMLIcon },
@@ -86,7 +94,7 @@ const hobbies = [
 export const AboutSection = () => {
   const constraintRef = useRef(null);
   return (
-    <div className="py-20 lg:py-28 " id="about">
+    <section className="py-16 lg:py-24" id="about">
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
@@ -125,34 +133,31 @@ export const AboutSection = () => {
           </div>
 
           {/* GitHub Contribution Calendar Card - Full Width */}
-          <Card className="w-full p-6 md:p-8 lg:p-10">
+          <Card className="w-full p-4 sm:p-6 md:p-8 lg:p-10">
             <CardHeader
               title="GitHub Contributions"
               description="Track my coding journey and GitHub contributions throughout the year."
-              className="mb-6"
+              className="mb-4 sm:mb-6"
             />
-            <div className="w-full flex justify-center items-center bg-gray-800/50 rounded-xl p-4 md:p-6 min-h-[200px]">
-              <div className="w-full max-w-4xl">
-                <a 
-                  href="https://github.com/users/Vaibhavr699/contributions" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block transition-opacity"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src="https://ghchart.rshah.org/Vaibhavr699" 
-                    alt="GitHub Contribution Calendar - Click to view full contributions" 
-                    className="w-full h-auto rounded-lg"
-                  />
-                </a>
-                {/* Alternative: If you have a screenshot/image of your GitHub contributions, import it and use:
-                <Image 
-                  src={GitHubCalendarImage} 
-                  alt="GitHub Contribution Calendar" 
-                  className="w-full h-auto rounded-lg"
-                /> */}
-              </div>
+            <div className="w-full bg-gray-800/50 rounded-xl p-3 sm:p-4 md:p-6">
+              <a
+                href="https://github.com/Vaibhavr699"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Vaibhav Raj's GitHub profile"
+                className="block w-full max-w-4xl mx-auto transition-opacity hover:opacity-90 [&_svg]:h-auto [&_svg]:w-full"
+              >
+                <GitHubCalendar
+                  username="Vaibhavr699"
+                  colorScheme="dark"
+                  fontSize={14}
+                  blockSize={13}
+                  blockMargin={4}
+                  theme={{
+                    dark: ["#1f2937", "#064e3b", "#059669", "#10b981", "#6ee7b7"],
+                  }}
+                />
+              </a>
             </div>
           </Card>
 
@@ -204,6 +209,6 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
